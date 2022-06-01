@@ -1,40 +1,22 @@
-import React ,{useState} from 'react';
-import CreateUser from './users/CreateUser';
-import UserList from './users/UserList';
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import TodoTemplate from './components/TodoTemplate';
 
-
-function App() {
-
-const [users,setUsers]=useState([
-  {
-    id: 1,
-    username: 'velopert',
-    email: 'public.velopert@gmail.com'
-  },
-  {
-    id: 2,
-    username: 'tester',
-    email: 'tester@example.com'
-  },
-  {
-    id: 3,
-    username: 'liz',
-    email: 'liz@example.com'
+const GlobalStyle=createGlobalStyle`
+ body{
+    background: #e9ecef;
   }
-])
+`;
+const App=()=> {
 
-
-  return (
-    <div className="App">
-      <CreateUser/>
-      {/*Error
-      Type '{ users: { id: number; username: string; email: string; }[]; }' is not assignable to type 'IntrinsicAttributes & UserListProps'.
-  Property 'users' does not exist on type 'IntrinsicAttributes & UserListProps'. 
-   */}
-     <UserList users={users}/>
-
-    </div>
-  );
-}
+return(
+  <>
+<GlobalStyle/>
+<TodoTemplate>
+ <div> 안녕하세요!</div>
+</TodoTemplate>
+</>
+)
+} 
 
 export default App;
